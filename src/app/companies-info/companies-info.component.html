@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of datalist">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.email}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

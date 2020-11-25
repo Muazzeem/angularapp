@@ -1,0 +1,43 @@
+<div>
+  <h1 class="font-weight-bold">Contact</h1>
+  <div class="container">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="col-3">
+          <label class="ml-3">
+            Name:
+            <input class="form-control form-control-lg" name="text" id="name" placeholder="Name" type="text"
+                   formControlName="name">
+          </label>
+        </div>
+        <div class="col-3">
+          <label>
+            Email:
+            <input
+              [class.is-invalid]="profileForm.get('email').invalid && profileForm.get('email').touched"
+              type="email" class="form-control form-control-lg" placeholder="Email" formControlName="email"/>
+            <div class="invalid-tooltip">
+              Please provide a valid email.
+            </div>
+          </label>
+        </div>
+        <div class="col-3">
+          <label class="ml-3">
+            Phone:
+            <input class="form-control form-control-lg" name="phone" id="phone" placeholder="Name" type="text"
+                   formControlName="phone">
+          </label>
+        </div>
+        <div class="col-3">
+          <label class="ml-3">
+            Comment:
+            <input class="form-control form-control-lg" name="text" id="comment" placeholder="Comment" type="text"
+                   formControlName="comment">
+          </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary mt-5" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+  </div>
+</div>
+
