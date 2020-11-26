@@ -9,8 +9,13 @@ export class CompaniesDataService {
   // tslint:disable-next-line:typedef
   getData()
   {
-    const url = 'http://127.0.0.1:8000/jobs/contact/';
-    return this.http.get(url);
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+    return this.http.get(url, {
+      params: {
+        _start: '0',
+        _limit: '7'
+      }
+    });
   }
 
 }

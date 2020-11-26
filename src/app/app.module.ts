@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
@@ -33,6 +34,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    InfiniteScrollModule,
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

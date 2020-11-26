@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {HttpClient} from '@angular/common/http';
 import {CompaniesDataService} from './companies-data.service';
+
 
 @Component({
   selector: 'app-companies-info',
@@ -8,16 +11,58 @@ import {CompaniesDataService} from './companies-data.service';
 })
 export class CompaniesInfoComponent implements OnInit {
   // tslint:disable-next-line:ban-types
-  datalist: Object = [];
-  constructor(private data: CompaniesDataService) {
-    // tslint:disable-next-line:no-shadowed-variable
+  details = [];
+  notEmptyPost = true;
+  notscrolly = true;
+
+  // tslint:disable-next-line:typedef
+  ngOnInit() {
+    this.loadInitPost();
+  }
+
+  constructor(private data: CompaniesDataService, private http: HttpClient, private spinner: NgxSpinnerService) {
+  }
+
+  // tslint:disable-next-line:typedef
+  loadInitPost() {
     this.data.getData().subscribe(data => {
-      console.warn(data);
-      this.datalist = data;
+      this.details = this.details.concat(data);
+      // console.warn(this.details);
     });
   }
 
-  ngOnInit(): void {
+  // tslint:disable-next-line:typedef
+  onScroll() {
+    if (this.notscrolly && this.details.length) {
+      this.spinner.show();
+      this.notscrolly = false;
+
+      this.loadNextPost();
+    }
   }
 
+  // tslint:disable-next-line:typedef
+  loadNextPost() {
+    const url = 'https://jsonplaceholder.typicode.com/posts';
+
+    const lastPost = this.details[this.details.length - 1];
+    // console.log(lastPost);
+    const lastPostId = lastPost.id;
+    this.http.get(url,  {
+      params: {
+        _start: lastPostId,
+        _limit: '5'
+      }
+    })
+      .subscribe((data: any) => {
+        const newPost = data;
+        this.spinner.hide();
+        if (newPost.length === 0) {
+          this.notEmptyPost = false;
+        }
+        // add newly fetched posts to the existing post
+        this.details = this.details.concat(newPost);
+        this.notscrolly = true;
+      });
+  }
 }

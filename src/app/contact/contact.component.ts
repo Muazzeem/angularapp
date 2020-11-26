@@ -29,7 +29,7 @@ export class ContactComponent implements OnInit {
   }
 
   // tslint:disable-next-line:typedef
-  onSubmit(data) {
+  onSubmit() {
     console.warn(this.profileForm.value);
     // @ts-ignore
     this.http.post('http://127.0.0.1:8000/jobs/contact/', data)
