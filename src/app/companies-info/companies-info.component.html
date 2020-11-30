@@ -10,10 +10,12 @@
       <div class="col-12 p-2" *ngFor="let post of details">
         <!-- single post card -->
         <div class="card shadow">
-          <div class="card-body">
-            <h5 class="card-title text-center ">{{post.name}} {{post.id}}</h5>
-            <h5 class="card-title text-center ">{{post.title}}</h5>
-          </div>
+          <a href="" style="text-decoration: none">
+            <div class="card-body">
+              <h5 class="card-title text-center ">{{post.name}} {{post.id}}</h5>
+              <h5 class="card-title text-center ">{{post.title}}</h5>
+            </div>
+          </a>
         </div>
       </div>
     </div>

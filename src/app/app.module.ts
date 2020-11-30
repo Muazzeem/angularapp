@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {NgxSpinnerModule} from 'ngx-spinner';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
@@ -11,6 +11,10 @@ import {CompaniesInfoComponent} from './companies-info/companies-info.component'
 import {HomeComponent} from './home/home.component';
 import {Routes, RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ChartsModule} from 'ng2-charts';
+import {UploadFilesComponent} from './components/upload-files/upload-files.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 
 const routes: Routes = [
@@ -18,6 +22,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'company', component: CompaniesInfoComponent},
+  {path: 'upload', component: UploadFilesComponent},
 ];
 
 @NgModule({
@@ -26,7 +31,9 @@ const routes: Routes = [
     AboutComponent,
     ContactComponent,
     CompaniesInfoComponent,
-    HomeComponent
+    HomeComponent,
+    UploadFilesComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +43,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     InfiniteScrollModule,
     NgxSpinnerModule,
+    NgbModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

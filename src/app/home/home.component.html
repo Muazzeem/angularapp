@@ -1,17 +1,143 @@
-<h1 class="font-weight-bold">Home Page</h1>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-6">
-      <div class="card">
-        <div class="card-header">
-          Featured
+    <div class="col-sm-8">
+      <h2 class="font-weight-bold text-uppercase">top 10 companies</h2>
+      <div class="table-responsive-sm shadow bg-white">
+        <table class="table table-striped">
+          <tbody>
+          <tr>
+            <th scope="row">
+              <div class="row">
+                <div class="col-sm-12">
+                  company name
+                  <div class="row">
+                    <div class="col-xs-10 col-sm-6">
+                    </div>
+                    <div class="col-xs-2 col-sm-6 text-right">
+                      <a target="_blank" href="http://">Link</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card shadow mt-5">
+        <div class="card-header py-3">
+          <h6 class="h5 m-0 font-weight-bold text-primary">Most Popular Technologies</h6>
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="card-text">
+            <div class="row text-center font-weight-bold">
+              <div class="col-sm-4 mt-2">
+                <div class="card border-left-success">
+                  <div class="card-body">
+                    <p class="card-text">Python</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 mt-2">
+                <div class="card border-left-success">
+                  <div class="card-body">
+                    <p class="card-text">Java</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 mt-2">
+                <div class="card border-left-success">
+                  <div class="card-body">
+                    <p class="card-text">PHP</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 mt-2">
+                <div class="card border-left-success">
+                  <div class="card-body">
+                    <p class="card-text">C</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 mt-2">
+                <div class="card border-left-success">
+                  <div class="card-body">
+                    <p class="card-text">JavaScript</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card shadow border-left-success mt-5">
+        <div class="card-body">
+          <h3 class="text-center font-weight-bold text-success text-uppercase">Total Companies</h3>
+          <div class="h4 text-center font-weight-bold">127</div>
+        </div>
+      </div>
+      <div class="card shadow mt-5">
+        <h3 class="font-weight-bold text-uppercase text-center text-primary">Top Technology</h3>
+        <app-pie-chart></app-pie-chart>
+      </div>
+    </div>
+  </div>
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary" id="exampleModalLabel">Online Free CV Maker</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="card-body" style="font-size: larger;">
+          <div class="toast-header bg-light">
+            <strong class="mr-auto text-primary"><i class="fas fa-link"></i> <a
+              href="http://careertutor.fractalslab.com/">Make CV</a></strong>
+            <small></small>
+          </div>
+          <div class="toast-body text-dark bg-transparent">
+            <i class="fas fa-arrow-right"></i> Use our Online CV Maker to create effective and stunning
+            online resumes for
+            free.
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-primary" target="_blank" href="http://careertutor.fractalslab.com/"
+               role="button">See Here</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <!--  <button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>-->
+
+  <ng-template #mymodal let-modal>
+    <div class="bd-example-modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <strong class="mr-auto text-primary"><i class="fas fa-link"></i> <a
+            href="http://careertutor.fractalslab.com/">Make CV</a></strong>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="card" style="font-size: larger;">
+          <div class="toast-body text-dark bg-transparent">
+            <i class="fas fa-arrow-right"></i> Use our Online CV Maker to create effective and stunning
+            online resumes for
+            free.
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-primary" target="_blank" href="http://careertutor.fractalslab.com/"
+               role="button">See Here</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
 </div>
+

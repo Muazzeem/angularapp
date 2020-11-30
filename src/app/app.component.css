@@ -1,0 +1,28 @@
+.active {
+  background-color: blue;
+  border-radius: 15px;
+  font-size: 14px;
+  color: white;
+  width: 150px;
+  text-align: center;
+}
+
+.navbar-nav a {
+  font-size: 12px;
+}
+
+.navbar-nav > li {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+@media screen and (max-width: 786px) {
+  .navbar-nav > li {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .active {
+    width: 100px;
+    text-align: left;
+  }
+}
